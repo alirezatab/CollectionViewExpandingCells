@@ -116,15 +116,15 @@ class UltravisualLayout: UICollectionViewLayout {
   }
   
   /* Return all attributes in the cache whose frame intersects with the rect passed to the method */
-  func layoutAttributesForElements(in rect: CGRect) -> [AnyObject]? {
-    var layoutAttributes = [UICollectionViewLayoutAttributes]()
-    for attributes in cache {
-      if attributes.frame.intersects(rect) {
-        layoutAttributes.append(attributes)
-      }
+    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+        var layoutAttributes = [UICollectionViewLayoutAttributes]()
+        for attributes in cache {
+            if attributes.frame.intersects(rect) {
+                layoutAttributes.append(attributes)
+            }
+        }
+        return layoutAttributes
     }
-    return layoutAttributes
-  }
   
   /* Return true so that the layout is continuously invalidated as the user scrolls */
   override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
