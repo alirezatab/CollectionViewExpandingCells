@@ -45,42 +45,42 @@ class UltravisualLayout: UICollectionViewLayout {
   /* Returns the width of the collection view */
   var width: CGFloat {
     get {
-      return CGRectGetWidth(collectionView!.bounds)
+      return collectionView!.bounds.width
     }
   }
   
   /* Returns the height of the collection view */
   var height: CGFloat {
     get {
-      return CGRectGetHeight(collectionView!.bounds)
+      return collectionView!.bounds.height
     }
   }
   
   /* Returns the number of items in the collection view */
   var numberOfItems: Int {
     get {
-      return collectionView!.numberOfItemsInSection(0)
+      return collectionView!.numberOfItems(inSection: 0)
     }
   }
   
   // MARK: UICollectionViewLayout
   
   /* Return the size of all the content in the collection view */
-  override func collectionViewContentSize() -> CGSize {
+  override var collectionViewContentSize : CGSize {
     let contentHeight = (CGFloat(numberOfItems) * dragOffset) + (height - dragOffset)
     return CGSize(width: width, height: contentHeight)
   }
   
-  override func prepareLayout() {
-    cache.removeAll(keepCapacity: false)
+  override func prepare() {
+    cache.removeAll(keepingCapacity: false)
     
   }
   
   /* Return all attributes in the cache whose frame intersects with the rect passed to the method */
-  override func layoutAttributesForElementsInRect(rect: CGRect) -> [AnyObject]? {
+  func layoutAttributesForElements(in rect: CGRect) -> [AnyObject]? {
     var layoutAttributes = [UICollectionViewLayoutAttributes]()
     for attributes in cache {
-      if CGRectIntersectsRect(attributes.frame, rect) {
+      if attributes.frame.intersects(rect) {
         layoutAttributes.append(attributes)
       }
     }
@@ -88,7 +88,7 @@ class UltravisualLayout: UICollectionViewLayout {
   }
   
   /* Return true so that the layout is continuously invalidated as the user scrolls */
-  override func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
+  override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
     return true
   }
   

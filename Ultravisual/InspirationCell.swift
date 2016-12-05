@@ -10,8 +10,8 @@ import UIKit
 
 class InspirationCell: UICollectionViewCell {
   
-  @IBOutlet private weak var imageView: UIImageView!
-  @IBOutlet private weak var imageCoverView: UIView!
+  @IBOutlet fileprivate weak var imageView: UIImageView!
+  @IBOutlet fileprivate weak var imageCoverView: UIView!
   
   var inspiration: Inspiration? {
     didSet {

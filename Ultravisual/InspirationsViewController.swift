@@ -13,8 +13,8 @@ class InspirationsViewController: UICollectionViewController {
   let inspirations = Inspiration.allInspirations()
   let colors = UIColor.palette()
   
-  override func preferredStatusBarStyle() -> UIStatusBarStyle {
-    return UIStatusBarStyle.LightContent
+  override var preferredStatusBarStyle : UIStatusBarStyle {
+    return UIStatusBarStyle.lightContent
   }
   
   override func viewDidLoad() {
@@ -23,26 +23,26 @@ class InspirationsViewController: UICollectionViewController {
     if let patternImage = UIImage(named: "Pattern") {
       view.backgroundColor = UIColor(patternImage: patternImage)
     }
-    collectionView!.backgroundColor = UIColor.clearColor()
+    collectionView!.backgroundColor = UIColor.clear
     
     let layout = collectionViewLayout as! UICollectionViewFlowLayout
-    layout.itemSize = CGSize(width: CGRectGetWidth(collectionView!.bounds), height: 100)
+    layout.itemSize = CGSize(width: collectionView!.bounds.width, height: 100)
   }
 
 }
 
 extension InspirationsViewController {
   
-  override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+  override func numberOfSections(in collectionView: UICollectionView) -> Int {
     return 1
   }
   
-  override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+  override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return inspirations.count
   }
   
-  override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCellWithReuseIdentifier("InspirationCell", forIndexPath: indexPath) as! UICollectionViewCell
+  override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InspirationCell", for: indexPath) 
     cell.contentView.backgroundColor = colors[indexPath.item]
     return cell
   }
