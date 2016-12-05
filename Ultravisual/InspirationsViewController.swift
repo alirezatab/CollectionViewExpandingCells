@@ -20,6 +20,10 @@ class InspirationsViewController: UICollectionViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    if #available(iOS 10.0, *) {
+        collectionView!.isPrefetchingEnabled = false
+    }
+    
     if let patternImage = UIImage(named: "Pattern") {
       view.backgroundColor = UIColor(patternImage: patternImage)
     }
