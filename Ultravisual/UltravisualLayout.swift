@@ -95,8 +95,7 @@ class UltravisualLayout: UICollectionViewLayout {
             let yOffset = standardHeight * nextItemPercentageOffset
             y = collectionView!.contentOffset.y - yOffset
             height = featuredHeight
-        } else if indexPath.item == (featuredItemIndex + 1) &&
-                    indexPath.item != numberOfItems {
+        } else if indexPath.item == (featuredItemIndex + 1) && indexPath.item != numberOfItems {
             // 5 - If the cell is next in line, you start by calculating the largest y could be (in this case, larger than the featured cell) and combine that with a calculated height to end up with the correct value of y, which is 280.0 — the height of the featured cell.
             let maxY = y + standardHeight
             height = max((featuredHeight - standardHeight) * nextItemPercentageOffset, 0)
