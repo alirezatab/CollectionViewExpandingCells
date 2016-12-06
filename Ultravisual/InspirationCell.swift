@@ -12,11 +12,13 @@ class InspirationCell: UICollectionViewCell {
   
   @IBOutlet fileprivate weak var imageView: UIImageView!
   @IBOutlet fileprivate weak var imageCoverView: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
   
   var inspiration: Inspiration? {
     didSet {
       if let inspiration = inspiration {
         imageView.image = inspiration.backgroundImage
+        titleLabel.text = inspiration.title
       }
     }
   }
