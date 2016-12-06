@@ -130,4 +130,11 @@ class UltravisualLayout: UICollectionViewLayout {
     return true
   }
   
+    // When the user lifts their finger after a scroll while there’s still some scroll velocity, this method will look into the future and tell you exactly where the scroll will end thanks to the proposedContentOffset. By returning a different scroll point, you can make the collection view end up right on an even boundary with a featured cell.
+    // All you’re doing in the implementation is finding the closest item to the proposed content offset, and then returning a CGPoint that’s positioned so that item will be right against the top of the screen.
+    override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
+        let itemIndex = round(proposedContentOffset.y / dragOffset)
+        let yOffset = itemIndex * dragOffset
+        return CGPoint(x: 0, y: yOffset)
+    }
 }
