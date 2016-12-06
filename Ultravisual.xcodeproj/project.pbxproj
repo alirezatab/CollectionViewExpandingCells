@@ -75,10 +75,10 @@
 				7B963E111ABC373600748FFC /* Extensions */,
 				7B963E121ABC373D00748FFC /* Layouts */,
 				7B963E131ABC374400748FFC /* Models */,
+				7B963E161ABC375B00748FFC /* Views */,
 				7B963E141ABC374B00748FFC /* Other */,
 				7B963E151ABC375100748FFC /* Storyboards & Xibs */,
 				7B963DED1ABC36A900748FFC /* Supporting Files */,
-				7B963E161ABC375B00748FFC /* Views */,
 			);
 			path = Ultravisual;
 			sourceTree = "<group>";

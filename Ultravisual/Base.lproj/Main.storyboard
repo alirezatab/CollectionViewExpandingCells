@@ -32,15 +32,24 @@
                                                 <constraint firstAttribute="height" constant="280" id="eWU-FB-vcf"/>
                                             </constraints>
                                         </imageView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1MM-3M-ZJt">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
                                     </subviews>
                                 </view>
                                 <constraints>
+                                    <constraint firstItem="1MM-3M-ZJt" firstAttribute="top" secondItem="n3U-hs-Bjw" secondAttribute="top" id="2Yv-uv-kP2"/>
                                     <constraint firstItem="lrk-Pk-MjA" firstAttribute="centerY" secondItem="n3U-hs-Bjw" secondAttribute="centerY" id="4PK-ed-y3X"/>
+                                    <constraint firstAttribute="bottom" secondItem="1MM-3M-ZJt" secondAttribute="bottom" id="CXi-Nz-bBD"/>
+                                    <constraint firstItem="1MM-3M-ZJt" firstAttribute="leading" secondItem="n3U-hs-Bjw" secondAttribute="leading" id="OYd-Dx-qYj"/>
                                     <constraint firstAttribute="trailing" secondItem="lrk-Pk-MjA" secondAttribute="trailing" id="b1y-SC-PqO"/>
+                                    <constraint firstAttribute="trailing" secondItem="1MM-3M-ZJt" secondAttribute="trailing" id="zCb-Um-KAj"/>
                                     <constraint firstItem="lrk-Pk-MjA" firstAttribute="leading" secondItem="n3U-hs-Bjw" secondAttribute="leading" id="zDb-dk-dya"/>
                                 </constraints>
                                 <size key="customSize" width="200" height="200"/>
                                 <connections>
+                                    <outlet property="imageCoverView" destination="1MM-3M-ZJt" id="t9K-zW-G7M"/>
                                     <outlet property="imageView" destination="lrk-Pk-MjA" id="cTf-rH-aqJ"/>
                                 </connections>
                             </collectionViewCell>
